@@ -1,0 +1,116 @@
+###
+POST http://localhost:4004/leagues-service/DeactivatePlayer
+Content-Type: application/json
+
+{
+    "id": 1
+}
+
+############
+# Leagues
+############
+
+###
+GET http://localhost:4004/odata/v4/service/leaguesAdm/Leagues
+#&$expand=teams
+
+###
+POST http://localhost:4004/odata/v4/service/leaguesAdm/Leagues
+Content-Type: application/json
+
+{
+    "idL": 1,
+    "country": "ES",
+    "name":"UK League",
+    "level":1
+}
+
+###
+PATCH  http://localhost:4004/odata/v4/service/leaguesAdm/Leagues/5
+Content-Type: application/json
+
+{
+    "name": "UK League"
+}
+
+############
+# Teams
+############
+
+###
+GET http://localhost:4004/odata/v4/service/leaguesAdm/Teams
+
+###
+POST http://localhost:4004/odata/v4/service/leaguesAdm/Teams
+Content-Type: application/json
+
+{
+    "idT": 55,
+    "name": "Chelsea",
+    "stadiumName": "Chelsea Stadium",
+    "city": "London",
+    "numberPlayers":32,
+    "league": {
+        "idL": 33
+    }
+}
+
+ 
+###
+PATCH http://localhost:4004/odata/v4/service/leaguesAdm/Teams/653
+Content-Type: application/json
+
+{
+      "numberPlayers": 37     
+}
+
+############
+# Players
+############
+
+###
+GET http://localhost:4004/odata/v4/service/leaguesAdm/Players
+
+###
+POST http://localhost:4004/odata/v4/service/leaguesAdm/Players
+Content-Type: application/json
+
+{
+    "idP": 11122,
+    "name": "Ter",
+    "surname": "Stegen",
+    "number": 34,
+    "active": true,
+    "team":  {
+        "idT": 492
+    }
+    
+}
+
+###
+GET http://localhost:4004/odata/v4/service/leaguesAdm/Players
+
+
+
+###
+PATCH  http://localhost:4004/leagues-service/Players/5
+Content-Type: application/json
+{
+    "number": 13
+}
+
+###
+POST http://localhost:4004/leagues-service/Players
+Content-Type: application/json
+
+{
+    "id": 32,
+    "name": "Cristian",
+    "surname": "Tartiere",
+    "number": 11,
+    "active": true,x
+    "team_id": 2
+}
+
+###
+DELETE http://localhost:4004/leagues-service/Players/456
