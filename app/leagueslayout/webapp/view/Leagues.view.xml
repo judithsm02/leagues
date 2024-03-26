@@ -1,0 +1,19 @@
+<mvc:View controllerName="leagues.leagueslayout.controller.Leagues"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+>
+<f:DynamicPage id="dynamicPageOverviewId" headerExpanded="true" toggleHeaderOnTitleClick="true" >
+
+    <f:title>
+        <f:DynamicPageTitle id="dynamicPageTitle">
+            <f:heading>
+                <Title id="title1" text="Leagues Management with oData and three columns"></Title>
+            </f:heading>
+        </f:DynamicPageTitle>
+        
+    </f:title>
+
+
+</f:DynamicPage>
+</mvc:View>

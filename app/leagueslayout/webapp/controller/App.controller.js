@@ -1,5 +1,5 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
+    "sap/ui/model/json/JSONModel"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
@@ -8,8 +8,17 @@ sap.ui.define([
         "use strict";
 
         return Controller.extend("leagues.leagueslayout.controller.App", {
+            
             onInit: function () {
+                var oViewModel= new JSONModel({
+                    layout:"OneColumn"
+                       
+        });      
+        
+            this.getView().setModel(oViewModel,"MainView");
+    
+        }
 
-            }
-        });
+    });
+
     });

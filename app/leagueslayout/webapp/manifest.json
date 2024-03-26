@@ -92,26 +92,71 @@
         "viewType": "XML",
         "async": true,
         "viewPath": "leagues.leagueslayout.view",
-        "controlAggregation": "pages",
-        "controlId": "app",
-        "clearControlAggregation": false
-      },
+        "controlAggregation": "beginColumnPages",
+        "controlId": "layout",
+        "bypassed": {
+          "target": [
+              "leagueslist" ]
+      }
+    },
       "routes": [
         {
-          "name": "RouteApp",
-          "pattern": ":?query:",
+          "name": "leaguesdetails",
+          "pattern": "",
+          "titleTarget": "",
+          "greedy": false,
           "target": [
-            "TargetApp"
+              "leaguesdetails"
+          ]       
+        },
+        
+        { "name":"teamsdetails",
+          "pattern": "Teams/{objectId}",
+          "titleTarget": "",
+          "greedy": false,
+          "target": [
+              "leaguesdetails",
+              "teamsdetails"          ]
+        },
+        {
+          "name": "playersdetails",
+          "pattern": "Player/{objectId}/{teams}",
+          "titleTarget": "",
+          "greedy": false,
+          "target": [
+              "leaguesdetails",
+              "teamsdetails",
+              "playersdetails"
           ]
         }
+        
       ],
       "targets": {
-        "TargetApp": {
+        "leaguesdetails": {
           "viewType": "XML",
           "transition": "slide",
-          "clearControlAggregation": false,
-          "viewId": "App",
-          "viewName": "App"
+          "ControlAggregation": "beginColumnPages",
+          "viewId": "leagueslist",
+          "viewName": "LeaguesList",
+          "viewLevel": 1
+        },
+
+        "teamsdetails": {
+          "viewType": "XML",
+          "transition": "slide",
+          "ControlAggregation": "midColumnPages",
+          "viewId": "teamslist",
+          "viewName": "TeamsList",
+          "viewLevel": 2
+        }, 
+        
+        "playersdetails": {
+          "viewType": "XML",
+          "transition": "slide",
+          "ControlAggregation": "endColumnPages",
+          "viewId": "playerslist",
+          "viewName": "PlayersList",
+          "viewLevel": 3
         }
       }
     },

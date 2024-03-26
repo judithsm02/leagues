@@ -1,7 +1,10 @@
 <mvc:View controllerName="leagues.leagueslayout.controller.App"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:f="sap.f">
+
     <Page id="page" title="{i18n>title}">
-        <content />
+        <f:FlexibleColumnLayout id="FlexibleColumnLayout" layout="{mainView/layout}" backgroundDesign="Solid">
+        </f:FlexibleColumnLayout>
     </Page>
 </mvc:View>
